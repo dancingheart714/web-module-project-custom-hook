@@ -5,13 +5,13 @@ import Charts from './components/Charts';
 import Navbar from './components/Navbar';
 
 // import useDark from './hooks/useDark';
-import { useDark } from './hooks/useDark';
+// import { useDarkMode } from './hooks/useDarkMode';
 
 import './styles.scss';
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [darkMode, setDarkMode] = useDark();
+  // const [darkMode, setDarkMode] = useDarkMode();
 
   // const [todos, setToDos] = useLocalStorage('todos', []);
   // const [urs, setUsers] = useLocalStorage('urs', [{ name: 'warren' }]);
@@ -26,8 +26,8 @@ const App = () => {
   }, []);
 
   return (
-    <div className={darkMode ? 'dark-mode App' : 'App'}>
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+    <div className="App">
+      <Navbar />
       <Charts coinData={coinData} />
     </div>
   );

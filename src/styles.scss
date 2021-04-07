@@ -169,6 +169,7 @@ img {
 
 .navbar {
   align-items: center;
+  background-color: orange;
   border-bottom: 1px solid rgb(221, 221, 221);
   display: flex;
   height: 70px;
@@ -190,7 +191,7 @@ img {
 }
 
 .toggle {
-  background: #f68819;
+  background: black;
   border-radius: 50px;
   height: 18px;
   left: 0;
@@ -224,13 +225,14 @@ img {
   width: 100%;
   max-width: 900px;
   margin-bottom: 16px;
+  background-color: #f68819;
 }
 
 .coin__title {
   display: block;
   margin-left: 8px;
-    min-width: 160px;
-text-align: left;
+  min-width: 160px;
+  text-align: left;
 }
 
 .coin__symbol {
@@ -247,7 +249,7 @@ text-align: left;
   background-color: #313843;
 
   .navbar {
-    background-color: #1F2022;
+    background-color: #1f2022;
     border: none;
   }
 }

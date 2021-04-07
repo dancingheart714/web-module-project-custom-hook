@@ -1,37 +1,37 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import axios from "axios";
-
-import Charts from "./components/Charts";
-import Navbar from "./components/Navbar";
+import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import axios from 'axios';
+import Charts from './components/Charts';
+import Navbar from './components/Navbar';
 
 // import useDark from './hooks/useDark';
-import useLocalStorage from './hooks/useLocalStorage';
+import { useDark } from './hooks/useDark';
 
-import "./styles.scss";
+import './styles.scss';
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
+  const [darkMode, setDarkMode] = useDark();
 
-  const [todos, setToDos] = useLocalStorage('todos', []);
-  const [urs, setUsers] = useLocalStorage('urs', [{name:"warren"}]);
+  // const [todos, setToDos] = useLocalStorage('todos', []);
+  // const [urs, setUsers] = useLocalStorage('urs', [{ name: 'warren' }]);
 
   useEffect(() => {
     axios
       .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true"
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true'
       )
-      .then(res => setCoinData(res.data))
-      .catch(err => console.log(err));
+      .then((res) => setCoinData(res.data))
+      .catch((err) => console.log(err));
   }, []);
+
   return (
-    <div className={darkMode ? "dark-mode App" : "App"}>
+    <div className={darkMode ? 'dark-mode App' : 'App'}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Charts coinData={coinData} />
     </div>
   );
 };
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
